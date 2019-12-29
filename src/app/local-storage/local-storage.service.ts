@@ -34,7 +34,7 @@ export class LocalStorageService {
     const relevant: Array<string> = [];
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.storage.length; i++) {
-      relevant.push(this.storage.key(1));
+      relevant.push(this.storage.key(i));
     }
     return relevant;
   }
