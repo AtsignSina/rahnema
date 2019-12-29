@@ -1,0 +1,123 @@
+<form
+  (submit)="this.fg.valid && submit()"
+  [formGroup]="fg">
+  <div class="row input-line">
+    <div class="col-12 col-md-4">
+      <label for="projectName">Project Name</label>
+    </div>
+    <div class="col-12 col-md-8">
+      <input class="form-control"
+             placeholder="Project Name"
+             id="projectName"
+             [(ngModel)]="detail.projectName"
+             name="projectName"
+             formControlName="projectName"
+             autocomplete="off">
+      <span class="mg-block"
+            [ngClass]="wzservice.ngClassForHint(fg, 'projectName')">{{wzservice.hintMessage(fg, 'projectName', 'Project name is required.', 'Please enter your project name.')}}</span>
+    </div>
+  </div>
+  <div class="row input-line">
+    <div class="col-12 col-md-4">
+      <label for="projectOwner">Project Owner</label>
+    </div>
+    <div class="col-12 col-md-8">
+      <input class="form-control"
+             placeholder="Project Owner"
+             id="projectOwner"
+             [(ngModel)]="detail.projectOwner"
+             name="projectOwner"
+             formControlName="projectOwner"
+             autocomplete="off">
+      <span class="mg-block"
+            [ngClass]="wzservice.ngClassForHint(fg, 'projectOwner')">{{wzservice.hintMessage(fg, 'projectOwner', 'Project owner is required.', 'Please enter your project owner.')}}</span>
+    </div>
+  </div>
+  <div class="row input-line">
+    <div class="col-12 col-md-4">
+      <label for="customerName">Customer Name</label>
+    </div>
+    <div class="col-12 col-md-8">
+      <input class="form-control"
+             placeholder="Customer Name"
+             id="customerName"
+             [(ngModel)]="detail.customerName"
+             name="customerName"
+             formControlName="customerName"
+             autocomplete="off">
+      <span class="mg-block"
+            [ngClass]="wzservice.ngClassForHint(fg, 'customerName')">{{wzservice.hintMessage(fg, 'customerName', 'Customer name is required.', 'Please enter your customer name.')}}</span>
+    </div>
+  </div>
+  <div class="row input-line">
+    <div class="col-12 col-md-4">
+      <label for="contactPhone">Contact Phone</label>
+    </div>
+    <div class="col-12 col-md-8 ">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">📞</span>
+        </div>
+        <input class="form-control"
+               placeholder="Contact Phone"
+               id="contactPhone"
+               [(ngModel)]="detail.contactPhone"
+               name="contactPhone"
+               formControlName="contactPhone"
+               autocomplete="off">
+      </div>
+      <span class="mg-block"
+            [ngClass]="wzservice.ngClassForHint(fg, 'contactPhone')">{{wzservice.hintMessage(fg, 'contactPhone', 'Contact phone is required.', 'Please enter your contact phone.')}}</span>
+    </div>
+  </div>
+  <div class="row input-line">
+    <div class="col-12 col-md-4">
+      <label for="emailAddress">Email Address</label>
+    </div>
+    <div class="col-12 col-md-8 ">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">@</span>
+        </div>
+        <input class="form-control"
+               placeholder="Email Address"
+               name="emailAddress"
+               [(ngModel)]="detail.emailAddress"
+               id="emailAddress"
+               formControlName="emailAddress"
+               autocomplete="off">
+      </div>
+      <span class="mg-block"
+            [ngClass]="wzservice.ngClassForHint(fg, 'emailAddress')">{{wzservice.hintMessage(fg, 'emailAddress', 'Email address is required.', 'Please enter your email address.')}}</span>
+    </div>
+  </div>
+  <div class="row input-line">
+    <div class="col-12 col-md-4">
+      <label for="companySite">Company Site</label>
+    </div>
+    <div class="col-12 col-md-8 ">
+      <div class=" input-group">
+        <input class="form-control"
+               placeholder="Company Site"
+               id="companySite"
+               [(ngModel)]="detail.companySite"
+               name="companySite"
+               formControlName="companySite"
+               autocomplete="off">
+        <div class="input-group-append">
+          <span class="input-group-text" id="basic-addon2">.com</span>
+        </div>
+      </div>
+      <span class="mg-block"
+            [ngClass]="wzservice.ngClassForHint(fg, 'companySite')">{{wzservice.hintMessage(fg, 'companySite', 'Company site is required.', 'Please enter your company site.')}}</span>
+    </div>
+  </div>
+  <div class="clearfix">
+    <div class="col-12 col-md-3 col-lg-2  float-md-right">
+      <button type="submit" class="form-control  btn btn-primary" [disabled]="!this.fg.valid">Next Step</button>
+    </div>
+    <div class="col-12 col-md-3 col-lg-2 float-md-left">
+      <button class="form-control btn btn-link" (click)="back()"> Previous</button>
+    </div>
+  </div>
+</form>

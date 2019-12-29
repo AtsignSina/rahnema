@@ -1,10 +1,12 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {WizardBaseComponent} from './wizard/wizard-base/wizard-base.component';
 import {MainComponent} from './main/main.component';
 
 
 const routes: Routes = [
-  {path: '', component: MainComponent}
+  {path: '', component: MainComponent},
+  {path: 'wizard', component: WizardBaseComponent}
 ];
 
 @NgModule({

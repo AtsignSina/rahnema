@@ -1,1 +1,30 @@
-<p>wizard-base works!</p>
+<div class="wizard m-auto">
+  <div class="card">
+    <div class="row">
+      <div class="col step" [ngClass]="stepActive('detail')">
+        <p><img class="img-fluid" src="/assets/detail.svg"/></p>
+        <p class="text">Project Detail</p>
+      </div>
+      <div class="col step" [ngClass]="stepActive('setting')">
+        <img class="img-fluid" src="/assets/setting.svg"/>
+        <p class="text">Project Setting</p>
+      </div>
+      <div class="col step" [ngClass]="stepActive('delivery')">
+        <img class="img-fluid" src="/assets/delivery.svg"/>
+        <p class="text">Project Delivery</p>
+      </div>
+      <div class="col step" [ngClass]="stepActive('accept')">
+        <img class="img-fluid" src="/assets/accept.svg"/>
+        <p class="text">Project Review</p>
+      </div>
+    </div>
+  </div>
+  <div class="clearfix">
+    <div class="card" [ngSwitch]="wzService.action">
+      <app-wizard-setting *ngSwitchCase="'detail'"></app-wizard-setting>
+      <app-wizard-delivery *ngSwitchCase="'setting'"></app-wizard-delivery>
+      <app-wizard-accept *ngSwitchCase="'delivery'"></app-wizard-accept>
+      <app-wizard-detail *ngSwitchDefault></app-wizard-detail>
+    </div>
+  </div>
+</div>
