@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+.input-line {
+  margin: 1em 0;
+}
+
+.mg-block {
+  color: #333;
+  font-size: 0.7em;
+}
+
+.error-block {
+  color: red;
+}
+.card {
+  width: 70%;
+  margin: 1em auto !important;
+  padding: 15px;
+}
