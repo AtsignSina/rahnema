@@ -5,11 +5,13 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {LocalStorageService} from './local-storage/local-storage.service';
 import {MainComponent} from './main/main.component';
+import {WizardBaseComponent} from './wizard/wizard-base/wizard-base.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
+    MainComponent,
+    WizardBaseComponent
   ],
   imports: [
     BrowserModule,
