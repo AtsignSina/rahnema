@@ -1,0 +1,128 @@
+<form [formGroup]="fg" (submit)="this.fg.valid && submit()">
+  <div class="row input-line">
+    <div class="col-12">
+      <label for="addressLine1">Address Line 1</label>
+    </div>
+    <div class="col-12">
+      <div class="input-group">
+        <input class="form-control"
+               placeholder="First name"
+               name="addressLine1"
+               [(ngModel)]="delivery.addressLine1"
+               id="addressLine1"
+               formControlName="addressLine1"
+               autocomplete="off">
+      </div>
+      <span class="mg-block"
+            [ngClass]="wzservice.ngClassForHint(fg, 'addressLine1')">{{wzservice.hintMessage(fg, 'addressLine1', 'Address Line 1 is required.', 'Please enter your address.')}}</span>
+    </div>
+  </div>
+  <div class="row input-line">
+    <div class="col-12">
+      <label for="addressLine2">Address Line 2</label>
+    </div>
+    <div class="col-12">
+      <div class="input-group">
+        <input class="form-control"
+               placeholder="First name"
+               name="addressLine2"
+               [(ngModel)]="delivery.addressLine2"
+               autocomplete="off"
+               id="addressLine2"
+               formControlName="addressLine2">
+      </div>
+      <span class="mg-block"
+            [ngClass]="wzservice.ngClassForHint(fg, 'addressLine2')">{{wzservice.hintMessage(fg, 'addressLine2', 'Address Line 2 is required.', 'Please enter your address.')}}</span>
+    </div>
+  </div>
+  <div class="row input-line">
+    <div class="col-12 col-md-6">
+      <div class="clearfix">
+        <div>
+          <label for="postCode">Post Code</label>
+        </div>
+        <div>
+          <div class="input-group">
+            <input class="form-control"
+                   placeholder="Post Code"
+                   name="postCode"
+                   autocomplete="off"
+                   [(ngModel)]="delivery.postCode"
+                   id="postCode"
+                   formControlName="postCode">
+          </div>
+          <span class="mg-block"
+                [ngClass]="wzservice.ngClassForHint(fg, 'postCode')">{{wzservice.hintMessage(fg, 'postCode', 'Post Code is required.', 'Please enter your Post Code.')}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="clearfix">
+        <div>
+          <label for="city">City</label>
+        </div>
+        <div>
+          <div class="input-group">
+            <input class="form-control"
+                   placeholder="City"
+                   name="city"
+                   autocomplete="off"
+                   [(ngModel)]="delivery.city"
+                   id="city"
+                   formControlName="city">
+          </div>
+          <span class="mg-block"
+                [ngClass]="wzservice.ngClassForHint(fg, 'city')">{{wzservice.hintMessage(fg, 'city', 'City is required.', 'Please enter your City.')}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row input-line">
+    <div class="col-12 col-md-6">
+      <div class="clearfix">
+        <div>
+          <label for="state">State</label>
+        </div>
+        <div>
+          <div class="input-group">
+            <input class="form-control"
+                   placeholder="State"
+                   name="state"
+                   autocomplete="off"
+                   [(ngModel)]="delivery.state"
+                   id="state"
+                   formControlName="state">
+          </div>
+          <span class="mg-block"
+                [ngClass]="wzservice.ngClassForHint(fg, 'state')">{{wzservice.hintMessage(fg, 'state', 'State is required.', 'Please enter your State.')}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="clearfix">
+        <div>
+          <label for="country">Country</label>
+        </div>
+        <div>
+          <div class="input-group">
+            <select class="form-control" name="country" id="country" formControlName="country"
+                    [(ngModel)]="delivery.country">
+              <option *ngFor="let cntr of countries" [value]="cntr"
+                      [selected]="delivery.country === cntr">{{ cntr }}</option>
+            </select>
+          </div>
+          <span class="mg-block"
+                [ngClass]="wzservice.ngClassForHint(fg, 'country')">{{wzservice.hintMessage(fg, 'country', 'Country is required.', 'Please select your Country.')}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clearfix">
+    <div class="col-12 col-md-3 col-lg-2  float-md-right">
+      <button type="submit" class="form-control  btn btn-primary" [disabled]="!this.fg.valid">Next Step</button>
+    </div>
+    <div class="col-12 col-md-3 col-lg-2 float-md-left">
+      <button class="form-control btn btn-link" (click)="back()"> Previous</button>
+    </div>
+  </div>
+</form>

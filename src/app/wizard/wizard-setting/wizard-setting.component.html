@@ -1,0 +1,78 @@
+<form
+  [formGroup]="fg"
+  (submit)="this.setting.communication.length > 0 && this.fg.valid && submit()">
+  <div class="row input-line">
+    <div class="col-12 col-md-4">
+      <label for="email">Email Address</label>
+    </div>
+    <div class="col-12 col-md-8 ">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">@</span>
+        </div>
+        <input class="form-control"
+               placeholder="Email"
+               name="email"
+               [(ngModel)]="setting.email"
+               id="email"
+               formControlName="email"
+               autocomplete="off">
+      </div>
+      <span class="mg-block"
+            [ngClass]="wzservice.ngClassForHint(fg, 'email')">{{wzservice.hintMessage(fg, 'email', 'Email address is required.', 'Please enter your email address.')}}</span>
+    </div>
+  </div>
+  <div class="row input-line">
+    <div class="col-12 col-md-4">
+      <label for="language">Language</label>
+    </div>
+    <div class="col-12 col-md-8 ">
+      <select class="form-control" name="language" id="language" formControlName="language"
+              [(ngModel)]="setting.language">
+        <option *ngFor="let lang of languages" [value]="lang" [selected]="setting.language === lang">{{ lang }}</option>
+      </select>
+      <span class="mg-block"
+            [ngClass]="wzservice.ngClassForHint(fg, 'language')">{{wzservice.hintMessage(fg, 'language', 'Language is required.', 'Please select your language.')}}</span>
+    </div>
+  </div>
+  <div class="row input-line">
+    <div class="col-12 col-md-4">
+      <label for="timezone">Timezone</label>
+    </div>
+    <div class="col-12 col-md-8 ">
+      <select class="form-control" name="language" id="timezone" formControlName="timezone"
+              [(ngModel)]="setting.timezone">
+        <option *ngFor="let tz of timezones" [value]="tz" [selected]="setting.timezone === tz">{{ tz }}</option>
+      </select>
+      <span class="mg-block"
+            [ngClass]="wzservice.ngClassForHint(fg, 'timezone')">{{wzservice.hintMessage(fg, 'timezone', 'Timezone is required.', 'Please enter your timezone.')}}</span>
+    </div>
+  </div>
+  <div class="row input-line">
+    <div class="col-12 col-md-4">
+      Communication
+    </div>
+    <div class="col-12 col-md-8 ">
+      <div *ngFor="let comm of communication;"
+           class="flex-container  align-center multi-checkbox">
+        <input type="checkbox"
+               (change)="changeCommunication(comm,$event)"
+               [id]="'input-' +comm"
+               [name]="'input-' +comm"
+               formControlName="communication"
+               [checked]="setting.communication.includes(comm)">
+        <label [for]="'input-'+comm">{{ comm }}</label>
+      </div>
+      <span class="mg-block"
+            [ngClass]="communicationNgClassForHint()">{{communicationHintMessage('At least one communication\'s type must check.', 'Please check your communication.')}}</span>
+    </div>
+  </div>
+  <div class="clearfix">
+    <div class="col-12 col-md-3 col-lg-2  float-md-right">
+      <button type="submit" class="form-control  btn btn-primary" [disabled]="!this.fg.valid">Next Step</button>
+    </div>
+    <div class="col-12 col-md-3 col-lg-2 float-md-left">
+      <button class="form-control btn btn-link" (click)="back()"> Previous</button>
+    </div>
+  </div>
+</form>

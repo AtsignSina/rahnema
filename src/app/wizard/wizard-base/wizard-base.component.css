@@ -1,0 +1,23 @@
+.step img {
+  max-height: 100px;
+
+}
+
+.step p.text {
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  color: #333333;
+}
+
+.step.active p.text {
+  color: #5d78ff;
+}
+
+.step img {
+  filter: grayscale(1);
+}
+
+.step.active img {
+  filter: grayscale(0);
+}

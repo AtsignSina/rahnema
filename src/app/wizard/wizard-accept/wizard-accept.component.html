@@ -1,0 +1,26 @@
+<h3>Review your Details and Submit</h3>
+<div class="detail-card">
+  <h4>Project Details</h4>
+  <p>{{project.details.projectName}}</p>
+  <p><span class="font-weight-bold">Phone:</span> <span>{{project.details.contactPhone}}</span></p>
+  <p><span class="font-weight-bold">Website:</span> <span>{{project.details.companySite}}</span></p>
+</div>
+<div class="detail-card">
+  <h4>Project Setting</h4>
+  <p>{{project.setting.language}}, {{project.setting.timezone}}</p>
+</div>
+<div class="detail-card">
+  <h4>Delivery Address</h4>
+  <p>{{project.delivery.addressLine1}}</p>
+  <p>{{project.delivery.addressLine2}}</p>
+  <p>{{project.delivery.city}} {{project.delivery.postCode}}, {{project.delivery.state}}
+    , {{project.delivery.country}}</p>
+</div>
+<div class="clearfix">
+  <div class="col-12 col-md-3 col-lg-2  float-md-right">
+    <button type="submit" class="form-control  btn btn-success" (click)="submit()">Accept</button>
+  </div>
+  <div class="col-12 col-md-3 col-lg-2 float-md-left">
+    <button class="form-control btn btn-link" (click)="back()"> Previous</button>
+  </div>
+</div>
