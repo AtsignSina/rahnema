@@ -1,7 +1,8 @@
 import {ProjectActionEnum, ProjectActions} from './project.actions';
 import * as uuid from 'uuid';
+import { Project } from './project.proto';
 
-export function projectReducer(state, action: ProjectActions) {
+export function projectReducer(state = new Project, action: ProjectActions) {
   switch (action.type) {
     case  ProjectActionEnum.EDIT:
       return action.payload;
