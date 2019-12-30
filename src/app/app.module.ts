@@ -24,6 +24,10 @@ import {Ng2SmartTableModule} from 'ng2-smart-table';
     AppComponent,
     MainComponent,
     WizardBaseComponent,
+    WizardDetailComponent,
+    WizardSettingComponent,
+    WizardDeliveryComponent,
+    WizardAcceptComponent
   ],
   imports: [
     BrowserModule,
